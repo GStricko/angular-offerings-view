@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="sortBy">
+        <b>Sort by:</b>
+        <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedOption" (change)="onChangeOption($event.value)">
+            <mat-radio-button value="1">Name</mat-radio-button>
+            <mat-radio-button value="2">Start date</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="display">
+        <b>Display:</b>
+        <mat-checkbox class="example-margin" (change)="onDisplayDatesChange()">More details</mat-checkbox>
+    </div>
+</div>

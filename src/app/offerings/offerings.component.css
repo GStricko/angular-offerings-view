@@ -1,0 +1,78 @@
+.offering-border {
+  border: 1px solid #ccc; 
+  border-radius: 8px;
+  background-color: white;
+}
+
+.col-md-4 {
+  box-sizing: border-box; 
+  padding: 10px; 
+  width: 400px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.offering-selector {
+  padding: 15px;
+}
+
+.heading {
+  margin-left: 45%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.button-container {
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.row {
+  display: block;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center; /* horizontally center items */
+  align-items: center;
+  text-align: center;
+}
+
+.search-box {
+  margin-left: 10px;
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 1px
+}
+
+.no-offerings-to-show {
+  text-align: center;
+}
+
+.top-offering-display-toolbar {
+  background-color: white;
+  width: 1240px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-offering-display-toolbar {
+  background-color: white;
+  width: 1240px;
+}
+
+.top-pagination {
+  margin-left: auto;
+}

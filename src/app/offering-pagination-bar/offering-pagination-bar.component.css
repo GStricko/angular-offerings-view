@@ -1,0 +1,10 @@
+.offering-display-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+
+}
+
+.paginator-wrapper {
+  margin-left: auto;
+}

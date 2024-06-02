@@ -1,0 +1,25 @@
+<div class="login-form">
+  <img src="https://iqfy-storage.imgix.net/RaLO6EuLSQK5XUD4H5Mq_untitled.png" class="logo-image" alt="iQualify Logo">
+  <div class="login-container">
+    <h1>Welcome to iQualify</h1>
+    <div class="input-container">
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [formControl]="emailValidation">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" required>
+      </mat-form-field>
+      
+    </div>
+    @if(emailValidation.invalid && emailValidation.errors && emailValidation.dirty) {
+    <div class="email-validation-message">
+      The email address you provided is incomplete.
+    </div>
+    }
+    <button mat-flat-button color="primary" (click)="onLoginClick()">Login</button>
+  </div>
+</div>

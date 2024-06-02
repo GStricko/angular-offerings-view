@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="offering-name" matTooltip={{offering.name}}>
+        {{ offering.name.length > 20 ? (offering.name | slice:0:20) + "..." : offering.name }}
+    </div>
+    <div class="symbols-container">
+        <span class="material-symbols-outlined" matTooltip="Add learner" (click)="openDialog()">
+            person_add
+        </span>
+        <span class="material-symbols-outlined" matTooltip="View offering">
+            analytics
+        </span>
+    </div>
+    @if (displayOfferingDates) {
+
+        <mat-list>
+            <mat-list-item>Start: {{ offering.start | date: 'd MMM yyyy' }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>End: {{ offering.end | date: 'd MMM yyyy' }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <div class="idcopysection">
+                <mat-list-item >OfferingId: {{ offering.id }}</mat-list-item>
+                <span class="copy-button material-symbols-outlined" [cdkCopyToClipboard]="offering.id" (click)="confirmIdHasBeenCopied()">
+                    content_copy
+                </span>
+                <mat-divider></mat-divider>
+            </div>
+            <div class="idcopysection">
+                <mat-list-item>ContentId: {{ offering.contentId }}</mat-list-item>
+                <span class="copy-button material-symbols-outlined" [cdkCopyToClipboard]="offering.contentId" (click)="confirmIdHasBeenCopied()">
+                    content_copy
+                </span>
+            </div>
+          </mat-list>
+    }
+</div>

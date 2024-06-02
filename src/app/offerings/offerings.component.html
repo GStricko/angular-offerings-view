@@ -1,0 +1,67 @@
+<div class="header">
+    <div class="heading">
+        <h1>Offering list</h1>
+    </div>
+    <div class="button-container">
+        <button mat-flat-button color="primary" (click)="onLogoutClick()">Logout</button>
+    </div>
+</div>
+<div class="body">
+    <div class="offering-selector">
+        <mat-form-field>
+            <mat-label>Select</mat-label>
+            <mat-select [(ngModel)]="selectOfferingToShow" (selectionChange)="onDropdownChange()">
+                <mat-option value="current">Current</mat-option>
+                <mat-option value="past">Past</mat-option>
+                <mat-option value="future">Future</mat-option>
+                <mat-option value="">All</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="search-box">
+            <mat-label>Search</mat-label>
+            <input matInput [(ngModel)]="searchTerm" (input)="onSearchTermInput()">
+            <mat-icon class="material-icons search-icon">search</mat-icon>
+        </mat-form-field>
+
+    </div>
+
+    <div class="top-offering-display-toolbar">
+            <app-offering-nav-bar (optionChanged)="getOfferings($event)"></app-offering-nav-bar>
+            <div class="top-pagination">
+                <app-offering-pagination-bar [length]="offeringListLength" (pageChanged)="onPaginationChange($event)" [pagesize]="offeringsToDisplay" [pageIndex]="pageIndexForPagination"></app-offering-pagination-bar>
+            </div>
+    </div>
+    <br>
+
+    @if(showLoadingSpinner) {
+    <mat-spinner></mat-spinner>
+    }
+
+    <div class="card-grid">
+        @if(filteredOfferingList.length > 0) {
+            @for(offering of filteredOfferingList.slice(pageIndexToShow, pageIndexToShow + offeringsToDisplay); track
+            offering.id) {
+            <div class="col-md-4 offering-border">
+                <app-offering-single [offering]="offering"></app-offering-single>
+            </div>
+            }
+        }
+        @else if (searchTerm === '') {
+            @for(offering of offeringList.slice(pageIndexToShow, pageIndexToShow + offeringsToDisplay); track
+            offering.id) {
+            <div class="col-md-4 offering-border">
+                <app-offering-single [offering]="offering"></app-offering-single>
+            </div>
+            }
+        }
+        @else {
+            <p class="no-offerings-to-show">No offerings to show</p>
+        }
+    </div>
+
+    <br>
+    <div class="bottom-offering-display-toolbar">
+        <app-offering-pagination-bar [length]="offeringListLength" (pageChanged)="onPaginationChange($event)" [pagesize]="offeringsToDisplay" [pageIndex]="pageIndexForPagination"></app-offering-pagination-bar>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.offering-name {
+    text-align: center;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.symbols-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    max-width: 300px; 
+}
+
+.material-symbols-outlined {
+    font-size: 36px;
+    padding: 10px;
+    display: inline-flex; 
+}
+
+.material-symbols-outlined:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.idcopysection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.idcopysection mat-list-item {
+    flex: 1;
+}
+
+.idcopysection .copy-button {
+    margin-left: 10px;
+    font-size: 24px;
+}
